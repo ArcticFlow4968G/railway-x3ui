@@ -1,0 +1,19 @@
+[build]
+  builder = "dockerfile"
+  dockerfilePath = "Dockerfile"
+
+[deploy]
+  restartPolicyType = "always"
+  healthcheckPath = "/"
+  healthcheckTimeout = 300
+  numReplicas = 1
+
+[deploy.ports]
+  [deploy.ports.54321]
+    protocol = "tcp"
+  [deploy.ports.443]
+    protocol = "tcp"
+
+[variables]
+  PORT = "2053"
+  ADMIN_PASSWORD = "GUCCI"
